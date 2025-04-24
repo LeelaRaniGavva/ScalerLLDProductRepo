@@ -3,10 +3,7 @@ package Dev.Leela.DemoAppProject.Controller;
 import Dev.Leela.DemoAppProject.DTO.FakeStoreProductDTO;
 import Dev.Leela.DemoAppProject.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ProductController
@@ -26,6 +23,23 @@ public class ProductController
         return productService.getProductbyIdfromFakestore(id);
     }
 
+    @PostMapping("/products")
+    public FakeStoreProductDTO addProduct(@RequestBody FakeStoreProductDTO input)
+    {
+        return productService.addProducttoRepo(input);
+
+    }
+
+    @PutMapping("/products/{id}")
+    public FakeStoreProductDTO updateProduct(@RequestBody FakeStoreProductDTO fakeStoreProductDTO,@PathVariable int id)
+    {
+        return productService.updateProduct(fakeStoreProductDTO,id);
+    }
+    @DeleteMapping("/products/{id}")
+    public boolean deleteProductbyId(@PathVariable("id") int id)
+    {
+        return productService.deleteProduct(id);
+    }
 
 
 

@@ -21,5 +21,19 @@ public class ProductService {
         return fakeStoreClient.getProductbyId(id);
     }
 
+    public FakeStoreProductDTO addProducttoRepo( FakeStoreProductDTO input)
+    {
+        return fakeStoreClient.addingProduct(input);
+    }
+    public  FakeStoreProductDTO updateProduct(FakeStoreProductDTO input,int id)
+    {
+        return fakeStoreClient.updateProduct(input,id);
+    }
 
+
+    public boolean deleteProduct(int id) {
+        return fakeStoreClient.deleteProduct(id);
+    }
 }
+
+

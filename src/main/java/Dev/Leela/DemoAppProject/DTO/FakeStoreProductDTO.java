@@ -10,6 +10,8 @@ public class FakeStoreProductDTO
     private String image;
     private Rating rating;
 
+
+
     public int getId() {
         return id;
     }
